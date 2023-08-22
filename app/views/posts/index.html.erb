@@ -1,11 +1,19 @@
 <h1>Eliseu on Rails</h1>
 
-<% @posts.each do |post| %>
-  <%= link_to post.title, post %>
-<% end %>
-
 <ul>
   <li>
-    <%= link_to "Create new post", new_post_path%>
+    <%= link_to "Create new post", new_post_path %>
   </li>
 </ul>
+
+<div class="index-container">
+  <% @posts.order(created_at: :desc).each do |post| %>
+    <article class="index-post">
+      <div class="index-post-created-at">
+        <em><%= post.created_at.strftime("%d/%m/%Y") %></em>
+      </div>
+      <h3 class="index-post-title"><%= link_to post.title, post %></h3>
+      <section class="index-post-body"><%= simple_format(post.body) %></section>
+    </article>
+  <% end %>
+</div>
