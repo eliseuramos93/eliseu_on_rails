@@ -3,3 +3,20 @@
 <p>
   <%= @post.body %>
 </p>
+
+<h2>Comments</h2>
+
+<% @post.comments.each do |comment| %>
+  <p><%= comment.body %></p>
+  <p>Created at: <%= comment.created_at.strftime("%d/%m/%Y - %H:%02M:%02S")%> </p> 
+<% end %>
+
+<%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <p>
+    <%= form.label "Leave a comment (minimum: 3 characters)" %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
