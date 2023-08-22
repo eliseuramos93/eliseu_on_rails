@@ -1,22 +1,12 @@
 <h1> <%= @post.title %> </h1>
 
-<p>
-  <%= @post.body %>
-</p>
+<p><%= simple_format(@post.body) %></p>
 
-<h2>Comments</h2>
+<h2>Comments (from newest to oldest) </h2>
+<div class="comments-container">
+  <%= render @post.comments.order(created_at: :desc) %>
+</div>
 
-<% @post.comments.each do |comment| %>
-  <p><%= comment.body %></p>
-  <p>Created at: <%= comment.created_at.strftime("%d/%m/%Y - %H:%02M:%02S")%> </p> 
-<% end %>
+<%= render 'comments/form' %>
 
-<%= form_with model: [ @post, @post.comments.build ] do |form| %>
-  <p>
-    <%= form.label "Leave a comment (minimum: 3 characters)" %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= link_to "Return to Home", root_path %>
