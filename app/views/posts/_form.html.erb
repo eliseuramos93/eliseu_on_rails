@@ -1,0 +1,15 @@
+<%= form_with model: @post do |form| %>
+  <p>
+    <%= form.label "Post title" %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label "Post body" %><br>
+    <%= form.text_area :body, size: "50x10" %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
