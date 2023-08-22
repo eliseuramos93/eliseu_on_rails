@@ -1,5 +1,7 @@
 <h1> <%= @post.title %> </h1>
 
+<p><%= link_to "Edit this post", edit_post_path %></p>
+
 <p><%= simple_format(@post.body) %></p>
 
 <h2>Comments (from newest to oldest) </h2>
