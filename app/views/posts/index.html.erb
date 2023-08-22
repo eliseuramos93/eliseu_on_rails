@@ -1,0 +1,11 @@
+<h1>Eliseu on Rails</h1>
+
+<% @posts.each do |post| %>
+  <%= link_to post.title, post %>
+<% end %>
+
+<ul>
+  <li>
+    <%= link_to "Create new post", new_post_path%>
+  </li>
+</ul>
