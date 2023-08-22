@@ -1,0 +1,8 @@
+<div class="comment">
+  <div class="comment-data">
+    <strong><%= comment.created_at.strftime("%d/%m/%Y - %H:%02M:%02S")%></strong>
+  </div>
+  <section class="comment-body">
+    <%= simple_format(comment.body) %>
+  </section>
+</div>
