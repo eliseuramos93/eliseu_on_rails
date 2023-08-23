@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :require_admin_role, except: [:index, :show]
+
   def index
     @posts = Post.all
   end
@@ -45,6 +47,15 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :author_id)
+    end
+
+    def require_admin_role
+      unless current_user.try(:admin?)
+        flash[:failure] = "You are not authorized to create new or edit exisiting posts"
+        redirect_to root_path
+      end
+      
+      true
     end
 end
