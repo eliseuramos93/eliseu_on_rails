@@ -2,6 +2,7 @@
   <%= form_with model: [ @post, @post.comments.build ] do |form| %>
       <%= form.label "Leave a comment (minimum: 3 characters)" %> <br>
       <%= form.text_area :body %> <br>
+      <%= form.hidden_field :commenter_id, value: current_user.id %>
       <%= form.submit %> <br>
   <% end %>
 </div>
