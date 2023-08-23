@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="flex flex-col">
     <%= render 'layouts/navigation' %>
     <% flash.each do |name, message| %>
       <div class="<%= name %>"> <%= message %> </div>
