@@ -1,10 +1,8 @@
 <div id="index-posts" class="flex flex-col w-10/12 md:max-w-2xl mt-10 mb-10">
   <% @posts.order(created_at: :desc).each do |post| %>
-
     <div class="flex flex-col mt-5 mb-5">
       <strong class="self-start font-mono bg-red-200 text-red-800 text-2xl p-2 rounded-t-lg"><%= post.created_at.strftime("%d/%m/%Y") %></strong>
       <div class="self-start font-mono bg-red-800 text-red-200 text-3xl p-2 mb-3 rounded-tr-lg rounded-b-lg w-full"><%= link_to post.title, post %></div>
     </div>
-  
   <% end %>
 </div>
