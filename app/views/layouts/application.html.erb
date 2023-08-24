@@ -16,8 +16,9 @@
     <% flash.each do |name, message| %>
       <div class="<%= name %>"> <%= message %> </div>
     <% end %>
-
-    <%= yield %>
+    <div id="blog-content" class="flex flex-col items-center">
+      <%= yield %>
+    </div>
 
     <%= render 'layouts/footer' %>
   </body>
