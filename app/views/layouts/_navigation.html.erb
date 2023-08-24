@@ -1,33 +1,33 @@
-<nav class="flex flex-row font-sans h-14 bg-red-800 text-slate-100">
+<nav class="flex flex-row items-center font-sans h-14 bg-red-800 text-slate-100">
   <div id="blog-logo" class="basis-1/2 justify-center flex">
-    <h1 class="text-3xl self-center"><%= link_to "Eliseu on Rails", root_path %></h1>
+    <h1 class="text-3xl "><%= link_to "RubyByNewbie", root_path %></h1>
   </div>
 
-  <div id="nav-links" class="basis-1/2 flex flex-row justify-center space-x-4">
+  <div id="nav-links" class="basis-1/2 flex flex-row justify-center items-center space-x-4">
     <% if !user_signed_in? %>
-      <button id="sign-up" class="place-self-center hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
+      <button id="sign-up" class="hover:bg-red-500 hover:text-slate-100 ">
         <%= link_to "Sign Up", new_user_registration_path %>
       </button>
-      <button id="sign-in" class="place-self-center hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
+      <button id="sign-in" class="hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
         <%= link_to "Sign In", new_user_session_path %>
       </button>
     <% elsif current_user.try(:admin?) %>
-      <button id="create-post" class="place-self-center hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
+      <button id="create-post" class="hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
           <%= link_to "Create new post", new_post_path %>
       </button>
-      <button id="edit-profile" class="place-self-center hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
+      <button id="edit-profile" class="hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
         <%= link_to "Edit Profile", edit_user_registration_path %>
       </button>
-      <button id="log-out" class="place-self-center hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
+      <button id="log-out" class="hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
         <%= link_to "Log Out", destroy_user_session_path, data: {
           "turbo-method": :delete
         } %>
       </button>
     <% else %>
-      <button id="edit-profile" class="place-self-center hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
+      <button id="edit-profile" class="hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
         <%= link_to "Edit Profile", edit_user_registration_path %>
       </button>
-      <button id="log-out" class="place-self-center hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
+      <button id="log-out" class="hover:bg-red-500 hover:text-slate-100 transition duration-500 ease-in-out rounded p-1.5">
         <%= link_to "Log Out", destroy_user_session_path, data: {
           "turbo-method": :delete
         } %>

@@ -1,5 +1,11 @@
-<footer>
+<footer class="font-sans flex flex-col justify-center items-center font-sans h-14 bg-red-800 text-slate-100 mt-auto">
   <p class="copyright">© 2023 Eliseu Ramos. All Rights Reserved.</p>
-  <%= link_to "GitHub", 'https://github.com/eliseuramos93' %> | 
-  <%= link_to "LinkedIn", 'https://www.linkedin.com/in/eliseu-laercio-machado-de-ramos-8b813382/' %>
+  <div id="footer-links" class="flex flex-row space-x-4">
+    <button id="github" class="hover:text-slate-900 transition duration-500 ease-in-out rounded p-1.0">
+      <%= link_to "GitHub", 'https://github.com/eliseuramos93' %>
+    </button>
+    <button id="linkedin" class="hover:text-slate-900 transition duration-500 ease-in-out rounded p-1.0">
+      <%= link_to "LinkedIn", 'https://www.linkedin.com/in/eliseu-laercio-machado-de-ramos-8b813382/' %>
+    </button>
+  </div>
 </footer>
