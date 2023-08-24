@@ -1,18 +1,32 @@
-<h1> <%= @post.title %> </h1>
+<div id="index-posts" class="flex flex-col w-10/12 md:max-w-2xl mt-10 mb-10">
+  <strong class="self-start font-mono bg-red-200 text-red-800 text-2xl p-2 rounded-t-lg">
+    <%= @post.created_at.strftime("%d/%m/%Y") %>
+  </strong>
+  
+  <div class="self-start font-mono bg-red-800 text-red-200 text-4xl p-2 mb-3 rounded-tr-lg rounded-b-lg w-full">
+    <%= @post.title %>
+  </div>
 
-<% if current_user.try(:admin?) %>
-  <p><%= link_to "Edit this post", edit_post_path %></p>
-<% end %>
+  <% if current_user.try(:admin?) %>
+    <p><%= link_to "Edit this post", edit_post_path, class: "font-mono rounded-lg bg-red-800 text-red-200 p-1.5" %></p>
+  <% end %>
 
-<p><%= simple_format(@post.body) %></p>
+  <div class="font-serif mb-3">
+    <%= simple_format(@post.body, class: "leading-relaxed mb-4 text-lg") %>
+  </div>
 
-<h2>Comments (from newest to oldest) </h2>
-<div class="comments-container">
-  <%= render @post.comments.order(created_at: :desc) %>
+  <div id="comments-section" class="border-dotted border-b-4 border-t-4 p-4 border-red-800">
+    <div class="font-mono text-red-800 text-2xl mb-3">
+      Comments (from newest to oldest)
+    </div>
+    
+    <div>
+      <%= render @post.comments.order(created_at: :desc) %>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= render 'comments/form' %>
+    <% end %>
+  </div>
+
 </div>
-
-<% if user_signed_in? %>
-  <%= render 'comments/form' %>
-<% end %>
-
-<%= link_to "Return to Home", root_path %>

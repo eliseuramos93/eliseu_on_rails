@@ -1,8 +1,9 @@
-<div class="comment">
-  <div class="comment-data">
-    <strong><%= comment.created_at.strftime("%d/%m/%Y - %H:%02M:%02S")%></strong>
+<div class="flex flex-col">
+  <div class="self-start font-mono bg-red-200 text-red-800 text-xs p-2 rounded-t-lg">
+    <%= comment.created_at.strftime("%d/%m/%Y - %H:%02M:%02S")%>
   </div>
-  <section class="comment-body">
-    <%= simple_format(comment.body) %>
-  </section>
+
+  <div class="self-start bg-red-800 text-red-200 text-md p-2 mb-3 rounded-tr-lg rounded-b-lg w-full">
+    <%= simple_format(comment.body, class: "font-serif") %>
+  </div>
 </div>

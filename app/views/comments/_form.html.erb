@@ -1,8 +1,24 @@
 <div class="comment-form">
   <%= form_with model: [ @post, @post.comments.build ] do |form| %>
-      <%= form.label "Leave a comment (minimum: 3 characters)" %> <br>
-      <%= form.text_area :body %> <br>
+      <%= form.label "Leave a comment (minimum: 3 characters)", 
+        class: "font-mono text-2xl text-red-800" 
+      %> <br>
+      <%= form.text_area :body, class: "w-full h-40 resize-none mb-3 rounded-lg" %> <br>
       <%= form.hidden_field :commenter_id, value: current_user.id %>
-      <%= form.submit %> <br>
+      <div class="
+        flex 
+        justify-center
+        bg-red-800
+        text-red-200
+        hover:bg-red-500 
+        hover:text-slate-100 
+        transition 
+        duration-500 
+        ease-in-out 
+        rounded 
+        p-1.5">
+        <%= form.submit %> <br>
+      </div>
+      
   <% end %>
 </div>
